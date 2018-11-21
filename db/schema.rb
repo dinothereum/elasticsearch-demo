@@ -10,13 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628115101) do
+ActiveRecord::Schema.define(version: 20181121081402) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title"
-    t.text     "text"
+  create_table "clubs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "stadium"
+    t.integer  "nation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["nation_id"], name: "index_clubs_on_nation_id"
+  end
+
+  create_table "nations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "continent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "player_clubs", force: :cascade do |t|
+    t.date    "time_started"
+    t.date    "time_finished"
+    t.string  "goal"
+    t.integer "player_id"
+    t.integer "club_id"
+    t.index ["club_id"], name: "index_player_clubs_on_club_id"
+    t.index ["player_id"], name: "index_player_clubs_on_player_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string   "name"
+    t.string   "full_name"
+    t.date     "dob"
+    t.string   "height"
+    t.string   "weight"
+    t.text     "information"
+    t.integer  "position"
+    t.integer  "nation_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["nation_id"], name: "index_players_on_nation_id"
   end
 
 end
