@@ -1,0 +1,12 @@
+<% @players.each do |player| %>
+  <tr>
+    <td><%= player["name"] %></td>
+    <td><%= player["full_name"] %></td>
+    <td><%= player["dob"] %></td>
+    <td><%= player["nation"] %></td>
+    <td><%= player["clubs"].join(", ") %></td>
+    <td><%= player["height"] %></td>
+    <td><%= player["weight"] %></td>
+    <td><%= player["position"] %></td>
+  </tr>
+<% end %>

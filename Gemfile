@@ -18,6 +18,8 @@ gem "jbuilder", "~> 2.5"
 
 gem "rails_admin"
 gem "searchkick"
+gem "bootstrap-sass", "~> 3.3.7"
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", platform: :mri

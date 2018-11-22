@@ -1,0 +1,60 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.search-form {
+  max-width: 40%;
+  margin: auto;
+  margin-top: 100px;
+
+  .search-group {
+    margin-bottom: 8px;
+  }
+
+  .inline-form {
+    display: flex;
+  }
+
+  .number-area {
+    border: 1px solid #ccc;
+    padding: 10px 5px 7px 5px;
+    border-radius: 4px;
+  }
+
+  .select-box-25 {
+    max-width: 25%;
+    margin: auto;
+  }
+
+  .input-number {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 34px;
+    padding: 6px 12px;
+  }
+
+  .fixed-30 {
+    max-width: 40%;
+    margin: auto;
+  }
+
+  .search-title {
+    padding-left: 4px;
+  }
+
+  .btn-submit {
+    width: 25%;
+  }
+}
+
+.result-form {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+
+  .result-table {
+    margin-bottom: 1px;
+  }
+}

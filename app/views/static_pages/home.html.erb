@@ -1,1 +1,88 @@
-home.html.erb
+<div class="search-form">
+  <%= form_for @search, {url: root_path, method: :get} do |f| %>
+    <div class="search-group">
+      <%= f.text_field "player_name", class: "form-control",
+        placeholder: "Player Name" %>
+    </div>
+
+    <div class="inline-form search-group">
+      <%= f.select :clubs, options_for_select(@clubs),
+        {include_blank: "Clubs"}, {class: "form-control select-box-25"} %>
+      <%= f.select :nations, options_for_select(@nations),
+        {include_blank: "Nations"}, {class: "form-control select-box-25"} %>
+      <%= f.select :continents, options_for_select(@continents),
+        {include_blank: "Continents"}, {class: "form-control select-box-25"} %>
+      <%= f.select :positions, options_for_select(@positions),
+        {include_blank: "Positions"}, {class: "form-control select-box-25"}%>
+    </div>
+
+    <div class="inline-form search-group number-area">
+      <div>
+        <p class="search-title">HEIGHT (CM)</p>
+        <div class="search-inner">
+          <%= f.text_field :height_min, type: "number", placeholder: "min",
+            class: "input-number fixed-30" %>
+          <b>-</b>
+          <%= f.text_field :height_max, type: "number", placeholder: "max",
+            class: "input-number fixed-30" %>
+        </div>
+      </div>
+
+      <div>
+        <p class="search-title">WEIGHT (KG)</p>
+        <div class="search-inner">
+          <%= f.text_field :weight_min, type: "number", placeholder: "min",
+            class: "input-number fixed-30" %>
+          <b>-</b>
+          <%= f.text_field :weight_max, type: "number", placeholder: "max",
+            class: "input-number fixed-30" %>
+        </div>
+      </div>
+
+      <div>
+        <p class="search-title">AGE</p>
+        <div class="search-inner">
+          <%= f.text_field :age_min, type: "number", placeholder: "min",
+            class: "input-number fixed-30" %>
+          <b>-</b>
+          <%= f.text_field :age_max, type: "number", placeholder: "max",
+            class: "input-number fixed-30" %>
+        </div>
+      </div>
+
+      <div>
+        <p class="search-title">YEAR (DOB)</p>
+        <%= f.text_field :birth_year, type: "number", placeholder: "YYYY, YY",
+          class: "input-number fixed" %>
+      </div>
+    </div>
+
+    <%= f.submit "Search", class: "btn btn-submit btn-primary center-block" %>
+  <% end %>
+</div>
+
+<div class="result-form">
+  <% if @players.blank? %>
+    No Players :)
+  <% else %>
+    <div>
+      <table class="table table-bordered result-table">
+        <thead>
+          <tr>
+            <th>Player Name</th>
+            <th>Full Name</th>
+            <th>Dob</th>
+            <th>Nation</th>
+            <th>Club</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render "list_player" %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>
